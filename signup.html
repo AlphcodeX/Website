@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GOD'S GRACE CAFE</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: url('laptop.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .signup-form {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .signup-form h1 {
+            margin-bottom: 25px;
+            font-size: 24px;
+            color: #ffcc00;
+        }
+        .signup-form input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            box-sizing: border-box;
+        }
+        .password-container {
+            position: relative;
+        }
+        .toggle-password {
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #ccc;
+            font-size: 14px;
+            user-select: none;
+        }
+        .signup-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: red;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+        .signup-form button:hover {
+            background-color: darkred;
+        }
+        .error-message {
+            color: #ff6666;
+            margin: 10px 0;
+            display: none;
+            text-align: left;
+        }
+        .strength-bar {
+            height: 10px;
+            border-radius: 5px;
+            background-color: #ccc;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+        .strength-fill {
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        .strength-text {
+            text-align: left;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        @media (max-width: 480px) {
+            .signup-form h1 {
+                font-size: 20px;
+            }
+            .signup-form button {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <form class="signup-form" id="signupForm">
+        <h1>GOD'S GRACE CAFE</h1>
+
+        <input type="email" id="email" placeholder="Enter your email" required>
+        <input type="text" id="fullname" placeholder="Enter your full name" required>
+
+        <div class="password-container">
+            <input type="password" id="password" placeholder="Set a strong password" required>
+            <span class="toggle-password" id="togglePassword">Show</span>
+        </div>
+        <div class="strength-bar">
+            <div class="strength-fill" id="strengthFill"></div>
+        </div>
+        <div class="strength-text" id="strengthText"></div>
+
+        <div class="password-container">
+            <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+            <span class="toggle-password" id="toggleConfirm">Show</span>
+        </div>
+
+        <div class="error-message" id="errorMessage"></div>
+
+        <button type="submit">SIGN UP</button>
+         <br>
+       <button><a href="Home.html">Go back</a></button>
+    </form>
+
+    <script>
+        const form = document.getElementById('signupForm');
+        const password = document.getElementById('password');
+        const confirmPassword = document.getElementById('confirmPassword');
+        const errorMessage = document.getElementById('errorMessage');
+        const strengthFill = document.getElementById('strengthFill');
+        const strengthText = document.getElementById('strengthText');
+        const togglePassword = document.getElementById('togglePassword');
+        const toggleConfirm = document.getElementById('toggleConfirm');
+
+        // Password strength check
+        function checkPasswordStrength(pw) {
+            let strength = 0;
+            if (pw.length >= 8) strength++;
+            if (/[A-Z]/.test(pw)) strength++;
+            if (/[a-z]/.test(pw)) strength++;
+            if (/[0-9]/.test(pw)) strength++;
+            if (/[!@#$%^&*(),.?":{}|<>]/.test(pw)) strength++;
+            return strength;
+        }
+
+        function updateStrengthMeter() {
+            const strength = checkPasswordStrength(password.value);
+            const percent = (strength / 5) * 100;
+            strengthFill.style.width = percent + "%";
+
+            if (strength <= 2) {
+                strengthFill.style.backgroundColor = "red";
+                strengthText.textContent = "Weak";
+            } else if (strength === 3 || strength === 4) {
+                strengthFill.style.backgroundColor = "orange";
+                strengthText.textContent = "Medium";
+            } else if (strength === 5) {
+                strengthFill.style.backgroundColor = "green";
+                strengthText.textContent = "Strong";
+            } else {
+                strengthFill.style.backgroundColor = "#ccc";
+                strengthText.textContent = "";
+            }
+        }
+
+        password.addEventListener('input', updateStrengthMeter);
+
+        // Toggle password visibility
+        togglePassword.addEventListener('click', () => {
+            if (password.type === "password") {
+                password.type = "text";
+                togglePassword.textContent = "Hide";
+            } else {
+                password.type = "password";
+                togglePassword.textContent = "Show";
+            }
+        });
+
+        toggleConfirm.addEventListener('click', () => {
+            if (confirmPassword.type === "password") {
+                confirmPassword.type = "text";
+                toggleConfirm.textContent = "Hide";
+            } else {
+                confirmPassword.type = "password";
+                toggleConfirm.textContent = "Show";
+            }
+        });
+
+        // Form validation
+        form.addEventListener('submit', function(event) {
+            errorMessage.innerHTML = '';
+            const errors = [];
+
+            if (password.value !== confirmPassword.value) {
+                errors.push("Passwords do not match.");
+            }
+
+            if (checkPasswordStrength(password.value) < 5) {
+                errors.push("Password is not strong enough.");
+            }
+
+            if (errors.length > 0) {
+                event.preventDefault();
+                errorMessage.innerHTML = errors.map(e => "• " + e).join("<br>");
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+                alert("Sign up successful!");
+            }
+        });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GOD'S GRACE CAFE</title>
+<style>
+    /* ===== GENERAL STYLES ===== */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+        position:;
+        top: 0;
+        width: 100%;
+        background-color: #ff4040;
+        padding: 10px 0;
+        text-align: center;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    header img {
+        max-width: 100px;
+        height: auto;
+        display: block;
+        margin: 0 auto 10px;
+    }
+
+    header h1 {
+        color: #eaffff;
+        margin: 0;
+        font-size: 28px;
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+        margin-top: 10px;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    nav ul li a:hover {
+        text-decoration: underline;
+    }
+
+    /* HAMBURGER ICON */
+    .hamburger {
+        display: 30;
+        cursor: pointer;
+        font-size: 24px;
+        color: white;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    main {
+        padding: 140px 0 20px; /* Space for fixed header */
+    }
+
+    section {
+        margin-bottom: 30px;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 5px;
+    }
+
+    .highlight {
+        color: #e91e63;
+        font-weight: bold;
+    }
+
+    /* ===== BUTTON ===== */
+    .button {
+        display: inline-block;
+        padding: 12px 20px;
+        background-color: red;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        text-align: center;
+    }
+
+    .button:hover {
+        background-color: darkred;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+   
+        
+        nav ul.show {
+            display: flex;
+        }
+
+        .hamburger {
+            display: block;
+        }
+    }
+    function toggleMenu() {
+        const navLinks = document.getElementById('nav-links');
+        navLinks.classList.toggle('show');
+    }
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container">
+        <img src="logo.jpg" alt="GOD's GRACE CAFE Logo">
+        <h1>GOD's GRACE CAFE</h1>
+
+        <!-- HAMBURGER ICON -->
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+        <nav>
+            <ul id="nav-links">
+                <li><a href="Home.html">Home Page</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="container">
+    <section id="services">
+        <h2>Services</h2>
+        <div>
+            <h3>Web Development</h3>
+            <p>Building responsive and modern websites.</p>
+        </div>
+        <div>
+            <h3>UI/UX Design</h3>
+            <p>Designing beautiful and user-friendly interfaces.</p>
+        </div>
+        <div>
+            <h3>Graphic Design</h3>
+            <p>Designing beautiful and attractive graphics using:</p>
+            <ul>
+                <li>Corel Draw</li>
+                <li>Photoshop</li>
+                <li>Canva</li>
+                <li>Pixel Lab</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SIGN UP BUTTON -->
+    <div style="text-align:center; margin-top:20px;">
+        <a href="SIGNUP.html" class="button">SIGN UP</a>
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        &copy; 2026 GOD's GRACE CAFE | All Rights Reserved
+    </div>
+</footer>
+
+
+</body>
+</html>
