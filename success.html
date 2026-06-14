@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GOD'S GRACE CAFE</title>
+<style>
+    /* ===== GENERAL STYLES ===== */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+        position: ;
+        top: 0;
+        width: 100%;
+        background-color: #95fff579;
+        padding: 10px 0;
+        text-align: center;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    header img {
+        max-width: 100px;
+        height: auto;
+        display: block;
+        margin: 0 auto 10px;
+    }
+
+    header h1 {
+        color: #4740fff0;
+        margin: 0;
+        font-size: 28px;
+    }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+        margin-top: 10px;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        transition: max-height 0.3s ease-in-out;
+    }
+
+    nav ul li {
+        position: relative;
+    }
+
+    nav ul li a {
+        color: #4740fff0;
+        text-decoration: none;
+        font-weight: bold;
+        display: block;
+        padding: 5px 10px;
+    }
+
+    nav ul li a:hover {
+        text-decoration: underline;
+    }
+
+    /* Submenu */
+    nav ul li ul.submenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #ff4040;
+        display: none;
+        flex-direction: column;
+        min-width: 180px;
+        border-radius: 0 0 5px 5px;
+    }
+
+    nav ul li:hover ul.submenu {
+        display: flex;
+    }
+
+    nav ul li ul.submenu li a {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    /* Hamburger icon */
+    .hamburger {
+        display: 30px;
+        cursor: pointer;
+        font-size: 28px;
+        color: blue;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+    }
+
+    /* ===== MAIN CONTENT ===== */
+    main {
+        padding: 160px 0 20px; /* Space for fixed header */
+    }
+
+    section {
+        margin-bottom: 30px;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 5px;
+    }
+
+    .highlight {
+        color: #e91e63;
+        font-weight: bold;
+    }
+
+    /* ===== BUTTON ===== */
+    .button {
+        display: inline-block;
+        padding: 12px 20px;
+        background-color: blue;
+        color: white;
+        font-size: 18px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+        text-align: center;
+    }
+
+    .button:hover {
+        background-color: darkred;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media screen and (max-width: 768px) {
+        nav ul {
+            flex-direction: row;
+            max-height: 0;
+            overflow: hidden;
+            background-color: white;
+            border-radius: 0 0 5px 5px;
+        }
+
+        nav ul.show {
+            max-height: 500px; /* Enough to show all menu items */
+        }
+
+        nav ul li {
+            width: 100%;
+        }
+
+        nav ul li ul.submenu {
+            position: relative;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        nav ul li.open > ul.submenu {
+            display: flex;
+        }
+
+        nav ul li ul.submenu li a {
+            padding-left: 30px;
+        }
+
+        .hamburger {
+            display: block;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container">
+        <img src="logo.jpg" alt="GOD's GRACE CAFE Logo">
+        <h1>GOD's GRACE CAFE</h1>
+
+        <!-- Hamburger Icon -->
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+
+        <nav>
+            <ul id="nav-links">
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li>
+                    <a href="#">Services ▾</a>
+                    <ul class="submenu">
+                        <li><a href="webdev.html">Web Development</a></li>
+                        <li><a href="uiux.html">UI/UX Design</a></li>
+                        <li><a href="graphic.html">Graphic Design</a></li>
+                    </ul>
+                </li>
+                <li><a href="Contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- MAIN CONTENT -->
+<main class="container">
+    <section id="services">
+        <h2>Services</h2>
+        <div>
+            <h3>Web Development</h3>
+            <p>Building responsive and modern websites.</p>
+        </div>
+        <div>
+            <h3>UI/UX Design</h3>
+            <p>Designing beautiful and user-friendly interfaces.</p>
+        </div>
+        <div>
+            <h3>Graphic Design</h3>
+            <p>Designing beautiful and attractive graphics using:</p>
+            <ul>
+                <li>Corel Draw</li>
+                <li>Photoshop</li>
+                <li>Canva</li>
+                <li>Pixel Lab</li>
+            </ul>
+        </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        &copy; 2026 GOD's GRACE CAFE | All Rights Reserved
+    </div>
+</footer>
+
+<!-- JS FOR HAMBURGER MENU -->
+<script>
+    function toggleMenu() {
+        const nav = document.getElementById('nav-links');
+        nav.classList.toggle('show');
+    }
+
+    // Toggle submenu on mobile
+    const navItems = document.querySelectorAll('nav ul li > a');
+    navItems.forEach(item => {
+        item.addEventListener('click', function (e) {
+            if (window.innerWidth <= 768) {
+                const parentLi = this.parentElement;
+                const submenu = parentLi.querySelector('.submenu');
+                if (submenu) {
+                    e.preventDefault();
+                    parentLi.classList.toggle('open');
+                }
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
